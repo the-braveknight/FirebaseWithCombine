@@ -53,12 +53,12 @@ extension FirestoreDocumentPublisher {
     }
 }
 
-extension DocumentReference {
-    func listen() -> FirestoreDocumentPublisher {
+public extension DocumentReference {
+    public func listen() -> FirestoreDocumentPublisher {
         .init(documentReference: self)
     }
     
-    func getSnapshot() -> Future<DocumentSnapshot, Error> {
+    public func getSnapshot() -> Future<DocumentSnapshot, Error> {
         Future { promise in
             self.getDocument { snapshot, error in
                 if let snapshot = snapshot {

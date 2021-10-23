@@ -55,12 +55,12 @@ extension FirestoreQueryPublisher {
     }
 }
 
-extension Query {
-    func listen() -> FirestoreQueryPublisher {
+public extension Query {
+    public func listen() -> FirestoreQueryPublisher {
         .init(query: self)
     }
     
-    func getSnapshot() -> Future<QuerySnapshot, Error> {
+    public func getSnapshot() -> Future<QuerySnapshot, Error> {
         Future { promise in
             self.getDocuments { snapshot, error in
                 if let snapshot = snapshot {
