@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import FirebaseFirestore
 
-struct FirestoreDocumentPublisher : Publisher {
+public struct FirestoreDocumentPublisher : Publisher {
     typealias Failure = Error
     typealias Output = DocumentSnapshot
     

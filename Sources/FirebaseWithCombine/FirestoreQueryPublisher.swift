@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import FirebaseFirestore
 
-struct FirestoreQueryPublisher: Publisher {
+public struct FirestoreQueryPublisher: Publisher {
     typealias Failure = Error
     typealias Output = QuerySnapshot
 
