@@ -10,12 +10,12 @@ import Combine
 import FirebaseFirestore
 
 public struct FirestoreDocumentPublisher : Publisher {
-    typealias Failure = Error
-    typealias Output = DocumentSnapshot
+    public typealias Failure = Error
+    public typealias Output = DocumentSnapshot
     
     let documentReference: DocumentReference
     
-    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+    public func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
         //
         let subscription = FirestoreDocumentSubscriber(subscriber: subscriber, documentReference: documentReference)
         subscriber.receive(subscription: subscription)

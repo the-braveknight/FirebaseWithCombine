@@ -10,8 +10,8 @@ import Combine
 import FirebaseFirestore
 
 public struct FirestoreQueryPublisher: Publisher {
-    typealias Failure = Error
-    typealias Output = QuerySnapshot
+    public typealias Failure = Error
+    public typealias Output = QuerySnapshot
 
     private let query: Query
     
@@ -19,7 +19,7 @@ public struct FirestoreQueryPublisher: Publisher {
         self.query = query
     }
 
-    func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
+    public func receive<S>(subscriber: S) where S : Subscriber, Failure == S.Failure, Output == S.Input {
         let subscription = FirestoreQuerySubscriber(subscriber: subscriber, query: query)
         subscriber.receive(subscription: subscription)
     }
